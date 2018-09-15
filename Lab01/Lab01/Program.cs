@@ -3,15 +3,26 @@ public class intergerTest
 {
     static void Main(string[] args)
     {
+        const double kmToau = 0.000000006685;
+        const double kmTomile = 0.621371192;
         const double lightSpeed = 186000d;   // miles per second
-        Console.WriteLine("Light speed = {0} Mile Per second", lightSpeed);
-        const double mileTokm = 1.609344;
-        Console.WriteLine("Light speed = {0} km Per second", lightSpeed * mileTokm);
-        const double SunToEarthDistance = 93000000d;  // miles
-        Console.WriteLine("SunToEarthDistance = {0} km", SunToEarthDistance * mileTokm);
-        double SunToEarthTimeOfLight = SunToEarthDistance / lightSpeed;  // miles
-        Console.WriteLine("SunToEarthTimeOfLight = {0} seconds", SunToEarthTimeOfLight);
-        Console.WriteLine("SunToEarthTimeOfLight = {0} minutes", SunToEarthTimeOfLight / 60d);
+        double lighttime, sunto, dis, sum;
+        char k;
+        do
+        {
+
+            Console.Write("\nPlease Distance KM = ");
+            dis = double.Parse(Console.ReadLine());
+            sum = dis * kmToau;      // แปลงเป็น A.U
+            Console.WriteLine("DistanceToSun = {0:F2} A.U", sum);
+            sunto = dis * kmTomile;    // หาระยะห่างจากดาวถึงดวงอาทิตย์เป็นหน่วย Mile
+            Console.WriteLine("DistanceMile = {0:F2} Mile", sunto);
+            lighttime = sunto / lightSpeed;  // ระยะห่าง(ไมล์) * ความเร็วแสง (ไมล์ต่อวิ) = ระยะเวลาของแสงจากดาวถึงอาทิตย์ (ต่อวิ)
+            Console.WriteLine("LightSpeedTime = {0:F2} Minutes", lighttime / 60);// ระยะเวลาของแสงจากดาวถึงอาทิตย์(ต่อนาที)
+
+            k = Console.ReadKey().KeyChar;
+        }
+        while ((k == 'Y') || (k == 'y'));
 
     }
 }
