@@ -3,26 +3,17 @@ public class intergerTest
 {
     static void Main(string[] args)
     {
-        const double kmToau = 0.000000006685;
-        const double kmTomile = 0.621371192;
-        const double lightSpeed = 186000d;   // miles per second
-        double lighttime, sunto, dis, sum;
-        char k;
-        do
+
+        for (float i = 0; i < Math.PI * 2.0F; i += 0.3F)
         {
-
-            Console.Write("\nPlease Distance KM = ");
-            dis = double.Parse(Console.ReadLine());
-            sum = dis * kmToau;      // แปลงเป็น A.U
-            Console.WriteLine("DistanceToSun = {0:F2} A.U", sum);
-            sunto = dis * kmTomile;    // หาระยะห่างจากดาวถึงดวงอาทิตย์เป็นหน่วย Mile
-            Console.WriteLine("DistanceMile = {0:F2} Mile", sunto);
-            lighttime = sunto / lightSpeed;  // ระยะห่าง(ไมล์) * ความเร็วแสง (ไมล์ต่อวิ) = ระยะเวลาของแสงจากดาวถึงอาทิตย์ (ต่อวิ)
-            Console.WriteLine("LightSpeedTime = {0:F2} Minutes", lighttime / 60);// ระยะเวลาของแสงจากดาวถึงอาทิตย์(ต่อนาที)
-
-            k = Console.ReadKey().KeyChar;
+            Console.WriteLine("The tan of {0,10:F} = {1,-10:F6}" +
+            spaces(Math.Tan(i)) + "*", i, Math.Tan(i));
         }
-        while ((k == 'Y') || (k == 'y'));
+    }
+    private static string spaces(double val)
+    {
+        string SpaceString = new String(' ', ((int)(val * 10.0)) + 10);
+        return SpaceString;
 
     }
 }
